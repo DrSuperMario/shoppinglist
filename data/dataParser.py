@@ -11,5 +11,5 @@ class ParseJsonToHTML():
     DATA = ShowAllShoppingLIst()
     
     def convert(self):
-        json_data = self.DATA.get()
-        breakpoint()
+        return self.DATA.get()
+        

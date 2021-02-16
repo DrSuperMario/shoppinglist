@@ -30,13 +30,14 @@ api.add_resource(Shopping,'/shopping/<string:_id>')
 
 @app.route('/', methods=['POST','GET'])
 def home():
+    data = ParseJsonToHTML().convert()
+    #breakpoint()
     return render_template('home.html')
 
 if(__name__=="__main__"):
 
     with app.app_context():
         db.create_all()
-        ParseJsonToHTML().convert()
     
     app.run()
     
