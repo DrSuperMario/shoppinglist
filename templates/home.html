@@ -50,133 +50,107 @@
 
     <div class="container mt-5 shadow p-4 mb-4 bg-white" style="width: 700px;">
       <h3>Ostunimekiri ja mämmmid</h3>
-      <div class="align-self-start">
-        <ul class="list-group list-group-flush align-text-start">
+  
+        <table class="table table-hover table-striped table-light table-bordered">
+          <thead class="thead-dark ">
+            <tr >
+              <th scope="col">#</th>
+              <th scope="col">Toode</th>
+              <th scope="col">hind</th>
+            </tr>
+          </thead>
           <form>
-            <li class="list-group-item">
-              <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1">
+            <tbody>
+              <tr>
+                <th scope="row"><input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th>
+                <td style="text-align: start;">
                     <label class="form-check-label" for="radio1"></label>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                      <a data-toggle="popover" >Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
                     </label>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="form-check">               
-                  <input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1">
-                  <label class="form-check-label" for="radio1">
-                    Lorem ipsum dolor
-                  </label>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1">
-                  <label class="form-check-label" for="radio1"></label>
+                    <script>
+                      $(function () {
+                        $('[data-toggle="popover"]').popover({
+                            container: 'body',
+                            title: 'Muuda',
+                            html: true,
+                            placement: 'right',
+                            sanitize: false,
+                            content: function () {
+                                return $("#PopoverContent").html();
+                            }
+                        });
+                      })
+                    </script>
+               </td>
+                <td>10.5€</td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th>
+                <td style="text-align: start;">
+                    <label class="form-check-label" for="radio1"></label>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  </label>
-            </div>
-            </li>
-            <li class="list-group-item">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1">
-                  <label class="form-check-label" for="radio1"></label>
+                    </label>
+               </td>
+                <td>10.5€</td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th>
+                <td style="text-align: start;">
+                    <label class="form-check-label" for="radio1"></label>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  </label>
-            </div>
-            </li>
-            <li class="list-group-item">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1">
-                  <label class="form-check-label" for="radio1"></label>
+                    </label>
+               </td>
+                <td>10.5€</td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th>
+                <td style="text-align: start;">
+                    <label class="form-check-label" for="radio1"></label>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  </label>
-            </div>
-            </li>
-            <li class="list-group-item">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1">
-                  <label class="form-check-label" for="radio1"></label>
+                    </label>
+               </td>
+                <td>10.5€</td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th>
+                <td style="text-align: start;">
+                    <label class="form-check-label" for="radio1"></label>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  </label>
-            </div>
-            </li>
-            <li class="list-group-item">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1">
-                  <label class="form-check-label" for="radio1"></label>
+                    </label>
+               </td>
+                <td>10.5€</td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th>
+                <td style="text-align: start;">
+                    <label class="form-check-label" for="radio1"></label>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  </label>
-            </div>
-            </li>
-            <li class="list-group-item">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1">
-                  <label class="form-check-label" for="radio1"></label>
+                    </label>
+               </td>
+                <td>10.5€</td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th>
+                <td style="text-align: start;">
+                    <label class="form-check-label" for="radio1"></label>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  </label>
-            </div>
-            </li>
-            <li class="list-group-item">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1">
-                  <label class="form-check-label" for="radio1"></label>
+                    </label>
+               </td>
+                <td>10.5€</td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th>
+                <td style="text-align: start;">
+                    <label class="form-check-label" for="radio1"></label>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  </label>
-            </div>
-            </li>
-            <li class="list-group-item">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1">
-                  <label class="form-check-label" for="radio1"></label>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  </label>
-            </div>
-            </li>
-            <li class="list-group-item">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1">
-                  <label class="form-check-label" for="radio1"></label>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  </label>
-            </div>
-            </li>
-            <li class="list-group-item">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1">
-                  <label class="form-check-label" for="radio1"></label>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  </label>
-            </div>
-            </li>
-            <li class="list-group-item">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1">
-                  <label class="form-check-label" for="radio1"></label>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  </label>
-            </div>
-            </li>
-            <li class="list-group-item">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1">
-                  <label class="form-check-label" for="radio1"></label>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  </label>
-            </div>
-            </li>
-            <li class="list-group-item">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1">
-                  <label class="form-check-label" for="radio1"></label>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  </label>
-            </div>
-            </li>
-            
+                    </label>
+               </td>
+                <td>10.5€</td>
+              </tr>
           </form>
-        </ul>
-      </div>
+        </tbody>
+      </table>
+    
     </div>    
     <div class="modal fade" id="myModal">
       <div class="modal-dialog" style="width:320px; height: 320px">
@@ -217,7 +191,13 @@
         </div>
       </div>
     </div>
-    
+    <section>
+      <div id="PopoverContent" style="display: none;"> 
+        <form method="POST">
+            <input type="text" class="form-control" placeholder="enter text" id="demo" name="email">
+          </form>
+      </div>
+    </section>
 
     <script src="../static/assets/dist/js/bootstrap.bundle.min.js"></script>
 
