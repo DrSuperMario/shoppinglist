@@ -8,14 +8,16 @@ class ShoppingList(db.Model):
     itemName = db.Column(db.String(20))
     itemQuantity = db.Column(db.Integer)
     itemDescription = db.Column(db.String(100))
+    itemCost = db.Column(db.String(10))
     dateAdded = db.Column(db.String(20))
 
 
-    def __init__(self, id, itemName, itemQuantity, itemDescription, dateAdded):
+    def __init__(self, id, itemName, itemQuantity, itemDescription, itemCost, dateAdded):
         self.id = id
         self.itemName = itemName
         self.itemQuantity = itemQuantity
         self.itemDescription = itemDescription
+        self.itemCost = itemCost
         self.dateAdded = dateAdded
 
 
@@ -25,6 +27,7 @@ class ShoppingList(db.Model):
             'itemName':self.itemName,
             'itemQuantity':self.itemQuantity,
             'itemDescription':self.itemDescription,
+            'itemCost':self.itemCost,
             'dateAdded':self.dateAdded
         }
     

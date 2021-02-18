@@ -13,6 +13,7 @@ class Shopping(Resource):
     parser.add_argument('itemName' , type=str, required=True, help='Item name must be added')
     parser.add_argument('itemQuantity', type=int, required=False, help='Quantity is defaulted to one if not added')
     parser.add_argument('itemDescription', type=str, required=False, help="item description, not required")
+    parser.add_argument('itemCost', type=str, required=False, help='Price of the item')
     parser.add_argument('dateAdded', type=str, required=False, help='Date is automaticlly added and required')
 
     def get(self, _id):
