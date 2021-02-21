@@ -11,6 +11,7 @@ from resources.shopping import Shopping, ShowAllShoppingLIst
 from data.dataParser import ParseJsonToHTML
 
 from db import db
+from forms import SearchForms
 # from flask_jwt import JWT
 
 app = Flask(__name__)
@@ -31,8 +32,9 @@ api.add_resource(Shopping,'/shopping/<string:_id>')
 @app.route('/', methods=['POST','GET'])
 def home():
     data = ParseJsonToHTML().convert()
+    form = SearchForms()
     #breakpoint()
-    return render_template('home.html')
+    return render_template('home.html', form=form)
 
 if(__name__=="__main__"):
 

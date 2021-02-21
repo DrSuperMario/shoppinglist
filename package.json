@@ -1,0 +1,27 @@
+{
+  "name": "shoppinglist",
+  "version": "1.0.0",
+  "description": "Python-Flask-uwsgi-nginx",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DrSuperMario/shoppinglist.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DrSuperMario/shoppinglist/issues"
+  },
+  "homepage": "https://github.com/DrSuperMario/shoppinglist#readme",
+  "devDependencies": {
+    "bower": "^1.8.12",
+    "gulp": "^4.0.2",
+    "del": "^2.2.0",
+    "gulp-browser": "^2.1.4",
+    "gulp-size": "^2.1.0",
+    "reactify": "^1.1.1"
+  }
+}
