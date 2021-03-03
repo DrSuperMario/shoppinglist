@@ -16,7 +16,7 @@ from forms import SearchForms
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL','sqlite:///data.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL','sqlite:///util/selver_data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['THREADED'] = True
 app.config['PORT'] = 6060
@@ -36,10 +36,15 @@ def home():
     #breakpoint()
     return render_template('home.html', form=form)
 
+
+
 if(__name__=="__main__"):
 
     with app.app_context():
         db.create_all()
+        from data.search import InitDB
+        data = InitDB()
+        data.get_all_items()
     
     app.run()
     
