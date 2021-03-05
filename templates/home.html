@@ -95,76 +95,18 @@
                 <td>10 tk</td>
                 <td>10.5€</td>
               </tr>
+              {% for x,y,z in toode%}
               <tr>
                 <th scope="row"><input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th>
                 <td style="text-align: start;">
                     <label class="form-check-label" for="radio1"></label>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    {{ x }}
                     </label>
                </td>
-                <td>10 tk</td>
-                <td>10.5€</td>
+                <td>{{ y }}</td>
+                <td>{{ z }}</td>
               </tr>
-              <tr>
-                <th scope="row"><input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th>
-                <td style="text-align: start;">
-                    <label class="form-check-label" for="radio1"></label>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    </label>
-               </td>
-               <td>10 tk</td>
-                <td>10.5€</td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th>
-                <td style="text-align: start;">
-                    <label class="form-check-label" for="radio1"></label>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    </label>
-               </td>
-               <td>10 tk</td>
-                <td>10.5€</td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th>
-                <td style="text-align: start;">
-                    <label class="form-check-label" for="radio1"></label>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    </label>
-               </td>
-               <td>10 tk</td>
-                <td>10.5€</td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th>
-                <td style="text-align: start;">
-                    <label class="form-check-label" for="radio1"></label>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    </label>
-               </td>
-               <td>10 tk</td>
-                <td>10.5€</td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th>
-                <td style="text-align: start;">
-                    <label class="form-check-label" for="radio1"></label>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    </label>
-               </td>
-               <td>10 tk</td>
-                <td>10.5€</td>
-              </tr>
-              <tr>
-                <th scope="row"><input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th>
-                <td style="text-align: start;">
-                    <label class="form-check-label" for="radio1"></label>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    </label>
-               </td>
-               <td>10 tk</td>
-                <td>10.5€</td>
-              </tr>
+              {% endfor %}
           </form>
         </tbody>
       </table>

@@ -3,7 +3,7 @@ from db import db
 
 class InitDB(db.Model):
 
-    __tablename__="Selver Items and Prices"
+    __tablename__="Selver"
 
     @classmethod
     def find_by_name(cls,name):

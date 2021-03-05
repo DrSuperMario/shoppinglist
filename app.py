@@ -8,7 +8,8 @@ from flask import (
 from flask_restful import Api
 
 from resources.shopping import Shopping, ShowAllShoppingLIst
-from data.dataParser import ParseJsonToHTML
+from resources.list import ToBuy, GetAllToBuy
+from dataParser import GetData
 
 from db import db
 from forms import SearchForms
@@ -25,29 +26,24 @@ app.secret_key = '4567yt'
 api = Api(app)
 db.init_app(app)
 
-api.add_resource(ShowAllShoppingLIst,'/shoppinglist')
+api.add_resource(ShowAllShoppingLIst,'/fulllist')
 api.add_resource(Shopping,'/shopping/<string:_id>')
+api.add_resource(ToBuy,'/tobuy')
+api.add_resource(GetAllToBuy,'/tobuylist')
+
 
 
 @app.route('/', methods=['POST','GET'])
 def home():
-    data = ParseJsonToHTML().convert()
-    form = SearchForms()
+    toode, hind, hind_kogus = GetData().all_data()
     #breakpoint()
-    return render_template('home.html', form=form)
+    form = SearchForms()
+    return render_template('home.html', form=form, toode=zip(toode, hind, hind_kogus))
 
-
+@app.before_first_request
+def first_request():
+    db.create_all()
 
 if(__name__=="__main__"):
-
-    with app.app_context():
-
-        db.create_all()
-        
-        from data.search import InitDB
-
-        data = InitDB()
-        data.get_all_items()
-    
     app.run()
     

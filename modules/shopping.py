@@ -2,34 +2,30 @@ from db import db
 
 class ShoppingList(db.Model):
 
-    __tablename__ = 'shopping_list'
+    __tablename__ = 'Selver'
 
-    id = db.Column(db.Integer, primary_key=True)
-    itemName = db.Column(db.String(20))
-    itemQuantity = db.Column(db.Integer)
-    itemDescription = db.Column(db.String(100))
-    itemCost = db.Column(db.String(10))
-    dateAdded = db.Column(db.String(20))
+    #pylint: disable = no-member
+
+    id = db.Column(db.Integer, primary_key=True) 
+    toode = db.Column(db.String(50)) 
+    hind = db.Column(db.String(20)) 
+    hind_kogus = db.Column(db.String(20)) 
 
 
-    def __init__(self, id, itemName, itemQuantity, itemDescription, itemCost, dateAdded):
+
+    def __init__(self, id: int, toode: str, hind: str, hind_kogus: str) -> None:
         self.id = id
-        self.itemName = itemName
-        self.itemQuantity = itemQuantity
-        self.itemDescription = itemDescription
-        self.itemCost = itemCost
-        self.dateAdded = dateAdded
-
+        self.toode = toode
+        self.hind = hind
+        self.hind_kogus = hind_kogus
 
     def json(self):
         return {
-            'id':self.id,
-            'itemName':self.itemName,
-            'itemQuantity':self.itemQuantity,
-            'itemDescription':self.itemDescription,
-            'itemCost':self.itemCost,
-            'dateAdded':self.dateAdded
-        }
+                'id':self.id,
+                'toode':self.toode,
+                'hind':self.hind,
+                'hind_kogus':self.hind_kogus             
+            }
     
     def save_to_db(self):
         db.session.add(self)
@@ -44,5 +40,5 @@ class ShoppingList(db.Model):
         return cls.query.filter_by(id=id).first()
 
     @classmethod
-    def find_item_by_name(cls, itemName):
-        return cls.query.filter_by(itemName=itemName).first()
+    def find_item_by_name(cls, toode):
+        return cls.query.filter_by(toode=toode).first()

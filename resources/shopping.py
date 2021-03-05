@@ -3,18 +3,15 @@ from datetime import datetime
 from flask_restful import Resource, reqparse
 
 from modules.shopping import ShoppingList
-from db import db
 
 
 class Shopping(Resource):
 
     parser = reqparse.RequestParser()
 
-    parser.add_argument('itemName' , type=str, required=True, help='Item name must be added')
-    parser.add_argument('itemQuantity', type=int, required=False, help='Quantity is defaulted to one if not added')
-    parser.add_argument('itemDescription', type=str, required=False, help="item description, not required")
-    parser.add_argument('itemCost', type=str, required=False, help='Price of the item')
-    parser.add_argument('dateAdded', type=str, required=False, help='Date is automaticlly added and required')
+    parser.add_argument('toode' , type=str, required=True, help='Item name must be added')
+    parser.add_argument('hind', type=int, required=False, help='Quantity is defaulted to one if not added')
+    parser.add_argument('hind_kogus', type=str, required=False, help="item description, not required")
 
     def get(self, _id):
         _id = ShoppingList.find_item_by_id(_id)
