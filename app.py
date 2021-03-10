@@ -1,9 +1,12 @@
+from modules.list import ToBuyList
 import os
 
 from flask import (
                     render_template,
                     Flask,
-                    request
+                    request,
+                    redirect,
+                    url_for
 )
 from flask_restful import Api
 
@@ -35,10 +38,16 @@ api.add_resource(GetAllToBuy,'/tobuylist')
 
 @app.route('/', methods=['POST','GET'])
 def home():
-    toode, hind, hind_kogus = GetData().all_data()
+    toode, hind, kogus, _ = GetData().all_data()
     #breakpoint()
     form = SearchForms()
-    return render_template('home.html', form=form, toode=zip(toode, hind, hind_kogus))
+    if(form.is_submitted and request.method=="POST"):
+        tooted = {'toode':form.toode_box.data,'kogus':form.kogus_box.data}
+        data = ToBuyList(**tooted)
+        data.save_to_db()
+        return redirect(url_for('home'))
+
+    return render_template('home.html', form=form, toode=zip(toode, kogus, hind))
 
 @app.before_first_request
 def first_request():

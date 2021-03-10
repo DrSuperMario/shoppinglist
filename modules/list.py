@@ -10,15 +10,17 @@ class ToBuyList(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     toode = db.Column(db.String(50), nullable=False)
     hind = db.Column(db.String(20), nullable=True)
+    kogus = db.Column(db.Integer, nullable=False)
     hind_kogus = db.Column(db.String(20), nullable=True)
     date = db.Column(db.String(30), nullable=False)
 
     #things = db.relationship('Selver', lazy='dynamic')
 
 
-    def __init__(self, toode: str, hind: str, hind_kogus: str) -> None:
+    def __init__(self, toode: str, hind: str=None, kogus: int=None, hind_kogus: str=None) -> None:
         self.toode = toode
         self.hind = hind
+        self.kogus = kogus
         self.hind_kogus = hind_kogus
         self.date = datetime.now()
 
@@ -26,6 +28,7 @@ class ToBuyList(db.Model):
         return {
                 'toode':self.toode,
                 'hind':self.hind,
+                'kogus':self.kogus,
                 'hind_kogus':self.hind_kogus,
                 'kuupaev':self.date
         }

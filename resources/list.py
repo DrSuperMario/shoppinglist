@@ -8,6 +8,7 @@ class ToBuy(Resource):
 
     parser.add_argument('toode', type=str, required=True, help="Toode lisamiseks ei leitud")
     parser.add_argument('hind', type=str, required=False, help="Hind")
+    parser.add_argument('kogus', type=int, required=True, help="Kogus")
     parser.add_argument('hind_kogus', type=str, required=False, help="Hind/Kogus")
 
 

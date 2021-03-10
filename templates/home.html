@@ -71,12 +71,7 @@
           </thead>
           <form>
             <tbody>
-              <tr>
-                <th scope="row"><input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th>
-                <td style="text-align: start;">
-                    <label class="form-check-label" for="radio1"></label>
-                      <a data-toggle="popover" >Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
-                    </label>
+              <tr>  
                     <script>
                       $(function () {
                         $('[data-toggle="popover"]').popover({
@@ -91,10 +86,7 @@
                         });
                       })
                     </script>
-               </td>
-                <td>10 tk</td>
-                <td>10.5€</td>
-              </tr>
+          
               {% for x,y,z in toode%}
               <tr>
                 <th scope="row"><input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th>
@@ -124,7 +116,7 @@
               <form method="POST">
                 <div class="input-group mb-3">
                   {{ form.csrf_token }}
-                  {{ form.toode_test_box(style="width: 230px;")}}
+                  {{ form.toode_box(class="form-control")}}
                   <!-- <input type="text" class="form-control" placeholder="" id="demo" name="email"> -->
                   <div class="input-group-append">
                     <span class="input-group-text">Toode</span>
