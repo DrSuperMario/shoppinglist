@@ -44,6 +44,7 @@ class ToBuyList(db.Model):
     @classmethod
     def find_by_id(cls,id=id):
         return cls.query.filter_by(id=id).first()
+    
 
     @classmethod
     def find_by_name(cls, toode=toode):

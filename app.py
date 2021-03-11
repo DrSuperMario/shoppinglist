@@ -15,7 +15,7 @@ from resources.list import ToBuy, GetAllToBuy
 from dataParser import GetData
 
 from db import db
-from forms import SearchForms, MultiSelectField
+from forms import SearchForms
 # from flask_jwt import JWT
 
 app = Flask(__name__)
@@ -42,17 +42,21 @@ def home():
     toode, hind, kogus, _ , id = GetData().all_data()
     form = SearchForms()
 
-
     if(form.is_submitted and request.method=="POST"):
-        if(form.kustuta_box):
-            #x = form.toode_multi
-            breakpoint()
+        if(form.kustuta_box and request.method=="POST"):
+            x = request.form.getlist('optradio')
+            for y in x:
+                find_me = ToBuyList.find_by_id(y)
+                ToBuyList.delete_from_db(find_me)
+
+            return redirect(url_for('home'))
 
         tooted = {
                   'toode':form.toode_box.data,
                   'kogus':form.kogus_box.data
                 }
         data = ToBuyList(**tooted)
+
         data.save_to_db()
         return redirect(url_for('home'))
     #breakpoint()

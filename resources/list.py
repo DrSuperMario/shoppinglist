@@ -12,8 +12,8 @@ class ToBuy(Resource):
     parser.add_argument('hind_kogus', type=str, required=False, help="Hind/Kogus")
 
 
-    def get(self,toode):
-        name = ToBuyList.find_by_name(toode)
+    def get(self,id):
+        name = ToBuyList.find_by_id(id)
         if(name):
             return name.json(),200
         return {"message":"Toodet ei ole olemas"}, 400
