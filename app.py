@@ -15,7 +15,7 @@ from resources.list import ToBuy, GetAllToBuy
 from dataParser import GetData
 
 from db import db
-from forms import SearchForms
+from forms import SearchForms, MultiSelectField
 # from flask_jwt import JWT
 
 app = Flask(__name__)
@@ -38,16 +38,25 @@ api.add_resource(GetAllToBuy,'/tobuylist')
 
 @app.route('/', methods=['POST','GET'])
 def home():
-    toode, hind, kogus, _ = GetData().all_data()
-    #breakpoint()
+
+    toode, hind, kogus, _ , id = GetData().all_data()
     form = SearchForms()
+
+
     if(form.is_submitted and request.method=="POST"):
-        tooted = {'toode':form.toode_box.data,'kogus':form.kogus_box.data}
+        if(form.kustuta_box):
+            #x = form.toode_multi
+            breakpoint()
+
+        tooted = {
+                  'toode':form.toode_box.data,
+                  'kogus':form.kogus_box.data
+                }
         data = ToBuyList(**tooted)
         data.save_to_db()
         return redirect(url_for('home'))
-
-    return render_template('home.html', form=form, toode=zip(toode, kogus, hind))
+    #breakpoint()
+    return render_template('home.html', form=form, toode=zip(toode, kogus, hind, id))
 
 @app.before_first_request
 def first_request():

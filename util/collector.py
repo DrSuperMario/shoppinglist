@@ -81,7 +81,7 @@ class Collect:
                 for t,f in zip(find_product_group_titles,prices):
                     self.dict_of_products.update({t:re.split(self.price_and_qty,f)[:2]})
 
-        return [{'toode':x,'hind':y[0],'hind_kogus':y[1]} for x,y in self.dict_of_products.items()]
+        return [{'toode':x,'hind':y[0],'hind_kogus':y[1] if len(y) > 1 else 0} for x,y in self.dict_of_products.items()]
 
 def main():
 

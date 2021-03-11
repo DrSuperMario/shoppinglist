@@ -49,7 +49,9 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">Kustuta toode</a>
+          <form method="POST">
+            {{ form.kustuta_box(class="btn btn-link nav-link btn-sm") }}
+          </form>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#myModal">Lisa toode</a>
@@ -87,9 +89,10 @@
                       })
                     </script>
           
-              {% for x,y,z in toode%}
+              {% for x,y,z,u in toode%}
               <tr>
-                <th scope="row"><input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th>
+                <th scope="row">{{ form.toode_multi }}</th>
+                  <!-- <input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th> -->
                 <td style="text-align: start;">
                     <label class="form-check-label" for="radio1"></label>
                     {{ x }}

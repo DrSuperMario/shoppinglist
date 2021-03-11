@@ -10,6 +10,7 @@ class GetData(Resource):
         hind = [x.hind for x in ToBuyList.query.all()]
         kogus = [x.kogus for x in ToBuyList.query.all()]
         hind_kogus = [x.hind_kogus for x in ToBuyList.query.all()]
+        id = [x.id for x in ToBuyList.query.all()]
 
-        return toode, hind, kogus, hind_kogus
+        return toode, hind, kogus, hind_kogus, id
             
