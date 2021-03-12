@@ -46,14 +46,14 @@ def home():
 
     if(form.lisa_box.data and request.method=="POST"):
 
+        hind = raw_data.filter(ShoppingList.toode.like('%' + form.toode_box.data + '%')).first()
+
         tooted = {
                   'toode':form.toode_box.data,
+                  'hind':hind.hind,
                   'kogus':form.kogus_box.data
                 }
-        raw = raw_data.filter(ShoppingList.toode.like('%' + form.toode_box.data + '%'))
-        x = [x.toode for x in raw]
-        #x = raw_data.order_by(ShoppingList.toode).all()
-        breakpoint()
+
         data = ToBuyList(**tooted)
 
         data.save_to_db()
