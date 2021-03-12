@@ -10,6 +10,7 @@ from flask import (
 )
 from flask_restful import Api
 
+from modules.shopping import ShoppingList
 from resources.shopping import Shopping, ShowAllShoppingLIst
 from resources.list import ToBuy, GetAllToBuy
 from dataParser import GetData
@@ -41,6 +42,7 @@ def home():
 
     toode, hind, kogus, _ , id = GetData().all_data()
     form = SearchForms()
+    raw_data = ShoppingList.query
 
     if(form.lisa_box.data and request.method=="POST"):
 
@@ -48,6 +50,10 @@ def home():
                   'toode':form.toode_box.data,
                   'kogus':form.kogus_box.data
                 }
+        raw = raw_data.filter(ShoppingList.toode.like('%' + form.toode_box.data + '%'))
+        x = [x.toode for x in raw]
+        #x = raw_data.order_by(ShoppingList.toode).all()
+        breakpoint()
         data = ToBuyList(**tooted)
 
         data.save_to_db()

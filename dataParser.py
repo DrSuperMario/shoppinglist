@@ -1,5 +1,4 @@
 
-from db import db
 from flask_restful import Resource
 from modules.list import ToBuyList
 
