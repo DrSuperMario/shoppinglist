@@ -10,6 +10,8 @@ class ToBuy(Resource):
     parser.add_argument('hind', type=str, required=False, help="Hind")
     parser.add_argument('kogus', type=int, required=True, help="Kogus")
     parser.add_argument('hind_kogus', type=str, required=False, help="Hind/Kogus")
+    parser.add_argument('tahtsus', type=str, required=True, help="tahtsus")
+
 
 
     def get(self,id):

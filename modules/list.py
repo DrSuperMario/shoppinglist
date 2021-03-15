@@ -1,3 +1,4 @@
+from flask.app import Flask
 from db import db
 from datetime import datetime
 
@@ -12,16 +13,18 @@ class ToBuyList(db.Model):
     hind = db.Column(db.String(20), nullable=True)
     kogus = db.Column(db.Integer, nullable=False)
     hind_kogus = db.Column(db.String(20), nullable=True)
+    tahtsus = db.Column(db.Integer, nullable=True)
     date = db.Column(db.String(30), nullable=False)
 
     #things = db.relationship('Selver', lazy='dynamic')
 
 
-    def __init__(self, toode: str, hind: str=None, kogus: int=None, hind_kogus: str=None) -> None:
+    def __init__(self, toode: str, hind: str=None, kogus: int=None, hind_kogus: str=None, tahtsus: int=3) -> None:
         self.toode = toode
         self.hind = hind
         self.kogus = kogus
         self.hind_kogus = hind_kogus
+        self.tahtsus = tahtsus
         self.date = datetime.now()
 
     def json(self):
@@ -30,6 +33,7 @@ class ToBuyList(db.Model):
                 'hind':self.hind,
                 'kogus':self.kogus,
                 'hind_kogus':self.hind_kogus,
+                'tahtsus':self.tahtsus,
                 'kuupaev':self.date
         }
 

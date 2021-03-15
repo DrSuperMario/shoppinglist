@@ -40,18 +40,21 @@ api.add_resource(GetAllToBuy,'/tobuylist')
 @app.route('/', methods=['POST','GET'])
 def home():
 
-    toode, hind, kogus, _ , id = GetData().all_data()
+    toode, hind, kogus, _ , tahtsus, id = GetData().all_data()
     form = SearchForms()
     raw_data = ShoppingList.query
 
     if(form.lisa_box.data and request.method=="POST"):
-
+        
+        x = form.tahtsus.data
+        
         hind = raw_data.filter(ShoppingList.toode.like('%' + form.toode_box.data + '%')).first()
 
         tooted = {
                   'toode':form.toode_box.data,
                   'hind':hind.hind,
-                  'kogus':form.kogus_box.data
+                  'kogus':form.kogus_box.data,
+                  'tahtsus':form.tahtsus.data
                 }
 
         data = ToBuyList(**tooted)
@@ -67,7 +70,7 @@ def home():
 
         return redirect(url_for('home'))
     #breakpoint()
-    return render_template('home.html', form=form, toode=zip(toode, kogus, hind, id))
+    return render_template('home.html', form=form, toode=zip(toode, kogus, hind, tahtsus, id))
 
 @app.before_first_request
 def first_request():

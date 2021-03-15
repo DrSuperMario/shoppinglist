@@ -7,6 +7,7 @@ from wtforms import (
                         SelectField,
                         HiddenField,
                         BooleanField,
+                        RadioField
                      
                     )
 import pandas as pd
@@ -26,4 +27,9 @@ class SearchForms(FlaskForm):
     kustuta_box = SubmitField('kustuta toode')
     kustuta_link = HiddenField('kustuta')
     toode_check = BooleanField('Checkboxs')
+    tahtsus = RadioField('Tähtsus', choices=[
+                                            (1,'Tähtis'),
+                                            (2,'Keskmine'),
+                                            (3,'Väike')
+                                ])
 

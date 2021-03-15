@@ -88,13 +88,19 @@
                       })
                     </script>
           
-              {% for x,y,z,u in toode%}
-              <tr>
+              {% for x,y,z,i,u in toode%}
+                {% if i == 1 %}
+                  <tr class="table-danger">
+                {% elif i == 2 %}
+                  <tr class="table-warning">
+                {% else %}
+                  <tr>
+                {% endif %} 
                 <th scope="row">
                   <input type="checkbox" class="form-check-input"  name="optradio" value={{ u }}></th>
                   <!-- <input type="checkbox" class="form-check-input" id="radio1" name="optradio" value="option1"></th> -->
                 <td style="text-align: start;">
-                    <label class="form-check-label" for="radio1"></label>
+                      <label class="form-check-label" for="radio1"></label>
                     {{ x }}
                     </label>
                </td>
@@ -108,28 +114,34 @@
     
     </div>    
     <div class="modal fade" id="myModal">
-      <div class="modal-dialog" style="width:320px; height: 320px">
+      <div class="modal-dialog" style="width:320px; height: 400px">
         <div class="modal-content">
           <div class="modal-header">
             <h4 class="modal-title">Ostunimekiri</h4>
             <button type="button" class="close" data-dismiss="modal">×</button>
           </div>
           <div class="container">
-            <div class="mx-auto" style="width:300px; height: 320px">
+            <div class="mx-auto" style="width:300px; height: 360px">
               <form method="POST">
                 <div class="input-group mb-3">
                   {{ form.csrf_token }}
                   {{ form.toode_box(class="form-control")}}
-                  <!-- <input type="text" class="form-control" placeholder="" id="demo" name="email"> -->
                   <div class="input-group-append">
                     <span class="input-group-text">Toode</span>
                   </div>
                 </div>
                 <div class="input-group mb-3">
                   {{ form.kogus_box(class="form-control")}}
-                  <!-- <input type="text" class="form-control" placeholder="" id="demo" name="email"> -->
                   <div class="input-group-append">
                     <span class="input-group-text">Kogus</span>
+                  </div>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="form-control">
+                      {% for radio in form.tahtsus %}
+                        {{ radio }}
+                        {{ radio.label }}
+                      {% endfor %}
                   </div>
                 </div>
                 <div class="input-group mb-3">
@@ -137,7 +149,6 @@
                 </div>
                   <div class="input-group mb-3">
                     {{ form.kirjeldus_box(class="form-control", rows="3")}}
-                    <!-- <textarea class="form-control" rows="3" id="comment" name="text"></textarea> -->
                 </div> 
                 <div class="input-group mb-3">
                   {{ form.lisa_box(class="btn btn-outline-dark")}}
