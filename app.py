@@ -51,16 +51,21 @@ def home():
         
         hind = raw_data.filter(ShoppingList.toode.like('%' + form.toode_box.data + '%')).first()
 
-        tooted = {
-                  'toode':form.toode_box.data,
-                  'hind':str(float(re.findall(r'(\d+.\d+)',hind.hind)[0].replace(',','.')) * float(form.kogus_box.data)) + ' €',
-                  'kogus':form.kogus_box.data,
-                  'tahtsus':3 if x is None else form.tahtsus.data
-                }
+        if(hind):
+            tooted = {
+                    'toode':hind.toode,
+                    'hind':str(float(re.findall(r'(\d+.\d+)',hind.hind)[0].replace(',','.')) * float(form.kogus_box.data)) + ' €',
+                    'kogus':form.kogus_box.data,
+                    'tahtsus':3 if x is None else form.tahtsus.data
+                    }
 
-        data = ToBuyList(**tooted)
+            data = ToBuyList(**tooted)
 
-        data.save_to_db()
+            try:
+                data.save_to_db()
+            except:
+                return redirect(url_for('home')),404
+
         return redirect(url_for('home'))
 
     if(form.kustuta_box.data and request.method=="POST"):
