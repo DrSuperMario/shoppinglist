@@ -1,5 +1,6 @@
 from modules.list import ToBuyList
 import os
+import re
 
 from flask import (
                     render_template,
@@ -52,9 +53,9 @@ def home():
 
         tooted = {
                   'toode':form.toode_box.data,
-                  'hind':hind.hind,
+                  'hind':str(float(re.findall(r'(\d+.\d+)',hind.hind)[0].replace(',','.')) * float(form.kogus_box.data)) + ' €',
                   'kogus':form.kogus_box.data,
-                  'tahtsus':form.tahtsus.data
+                  'tahtsus':3 if x is None else form.tahtsus.data
                 }
 
         data = ToBuyList(**tooted)
